@@ -1,0 +1,15 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+class Config:
+    BOT_TOKEN = os.getenv("BOT_TOKEN")
+    OWNER_ID = int(os.getenv("OWNER_ID", 0))
+    DATABASE_PATH = os.getenv("DATABASE_PATH", "bot_data.db")
+    MAINTENANCE_MODE = os.getenv("MAINTENANCE_MODE", "False").lower() == "true"
+    
+    # Bot settings
+    ADMIN_IDS = [OWNER_ID]
+    FLOOD_TIME = 1  # seconds
+    MAX_MESSAGE_LENGTH = 4096

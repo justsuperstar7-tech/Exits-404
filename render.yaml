@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: 404-bot
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: OWNER_ID
+        sync: false
+      - key: DATABASE_PATH
+        value: bot_data.db
+      - key: MAINTENANCE_MODE
+        value: false
